@@ -23,3 +23,4 @@ public class Member {
 
     @OneToMany(mappedBy = "member") // 1대다 하나의 회원이 여러개 상품 주문가능 // 연관관계의 거울 // order table에 있는 member 필드에 의해 맵핑됐다
     private List<Order> orders = new ArrayList<>();
+}
