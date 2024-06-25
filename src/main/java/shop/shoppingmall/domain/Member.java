@@ -3,26 +3,23 @@ package shop.shoppingmall.domain;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.boot.autoconfigure.amqp.RabbitConnectionDetails;
-import org.springframework.core.annotation.Order;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.springframework.boot.autoconfigure.amqp.RabbitConnectionDetails.*;
 
 @Entity
 @Getter @Setter
 public class Member {
 
     @Id @GeneratedValue // 시퀀스 값을 사용하기 위함
-    @Column(name = "member_id") // Fk(외래키)가 MEMBER_ID
+    @Column(name = "member_id") // name 안주면 아래 id 그대로 된다.
     private Long id;
 
     private String name;
 
-    @Embedded // 내장 타입을 포함했다.
+    @Embedded
     private Address address;
 
-    @OneToMany(mappedBy = "member")
+    @OneToMany(mappedBy = "member") // 1대다 하나의 회원이 여러개 상품 주문가능 // 연관관계의 거울 // order table에 있는 member 필드에 의해 맵핑됐다
     private List<Order> orders = new ArrayList<>();
