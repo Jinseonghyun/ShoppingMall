@@ -1,2 +1,4 @@
 # ShoppingMall
-JPA 활용해서 쇼핑몰 만들기
+
+쇼핑몰 구현
+- JPA 활용
