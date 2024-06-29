@@ -12,7 +12,7 @@ import java.util.List;
 @Getter @Setter
 public class Member {
 
-    @Id @GeneratedValue // 시퀀스 값을 사용하기 위함
+    @Id @GeneratedValue // id 값이 항상 생성되어 있음을 보장
     @Column(name = "member_id") // name 안주면 아래 id 그대로 된다.
     private Long id;
 

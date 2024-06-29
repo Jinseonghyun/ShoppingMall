@@ -8,7 +8,7 @@ import static jakarta.persistence.FetchType.*;
 
 @Entity
 @Getter @Setter
-public class Delivery {
+public class Delivery{
 
     @Id @GeneratedValue
     @Column(name = "delivery_id")
