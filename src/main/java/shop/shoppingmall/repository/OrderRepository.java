@@ -1,9 +1,9 @@
 package shop.shoppingmall.repository;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.criteria.Order;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+import shop.shoppingmall.domain.Order;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ public class OrderRepository {
         em.persist(order);
     }
 
-    public Order findOne(String id) {
+    public Order findOne(Long id) {
         return em.find(Order.class, id);
     }
 

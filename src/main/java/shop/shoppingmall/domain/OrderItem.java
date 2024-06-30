@@ -1,7 +1,9 @@
 package shop.shoppingmall.domain;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import shop.shoppingmall.domain.item.Item;
 
@@ -9,6 +11,7 @@ import static jakarta.persistence.FetchType.*;
 
 @Entity
 @Getter @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class OrderItem {
 
     @Id @GeneratedValue
