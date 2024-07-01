@@ -1,6 +1,7 @@
 package shop.shoppingmall.domain;
 
-public enum OrdersStatus {
+public enum OrderStatus {
 
     ORDER, CANCEL
 }
+
