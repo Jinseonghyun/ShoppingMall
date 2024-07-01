@@ -11,6 +11,8 @@ import shop.shoppingmall.Service.MemberService;
 import shop.shoppingmall.domain.Address;
 import shop.shoppingmall.domain.Member;
 
+import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 public class MemberController {
@@ -41,5 +43,15 @@ public class MemberController {
 
         memberService.join(member);
         return "redirect:/";
+    }
+
+    /**
+     * 회원 목록
+     */
+    @GetMapping("/members")
+    public String list(Model model) {
+        List<Member> members = memberService.findMembers();
+        model.addAttribute("members", members);
+        return "members/memberList";
     }
 }
