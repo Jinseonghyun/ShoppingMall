@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import shop.shoppingmall.Service.ItemService;
 import shop.shoppingmall.domain.item.Book;
+import shop.shoppingmall.domain.item.Item;
+
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -14,6 +17,9 @@ public class ItemController {
 
     private final ItemService itemService;
 
+    /**
+     * 상품 등록
+     */
     @GetMapping("/items/new")
     public String createForm(Model model) {
         model.addAttribute("form", new BookForm());
@@ -30,6 +36,16 @@ public class ItemController {
         book.setIsbn(form.getIsbn());
 
         itemService.saveItem(book);
-        return "redirect:/items";
+        return "redirect:/";
+    }
+
+    /**
+     * 상품 목록
+     */
+    @GetMapping("/items")
+    public String list(Model model) {
+        List<Item> items = itemService.findItems();
+        model.addAttribute("items", items);
+        return "items/itemList";
     }
 }
