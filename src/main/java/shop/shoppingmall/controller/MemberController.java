@@ -17,6 +17,9 @@ public class MemberController {
 
     private final MemberService memberService;
 
+    /**
+     * 회원 등록
+     */
     @GetMapping("members/new")
     public String createForm(Model model) {
         model.addAttribute("memberForm", new MemberForm());
